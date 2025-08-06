@@ -1,0 +1,88 @@
+.banner-main{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+  background-color: #fdfdfd;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.text-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 300px;
+}
+
+.text-content h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--neutral-900);
+}
+
+.text-content h3 {
+  color: var(--neutral-500);
+}
+
+.text-content .btn-contact{
+ margin-top: 1.2rem;
+}
+.image-content {
+  flex: 1;
+  min-width: 300px;
+  padding-top: 20px;
+}
+
+.shadow-1 {
+  box-shadow: -5px -5px 10px rgba(100,100,100,0.5),
+              5px 0 10px rgba(100,100,100,0.5);
+}
+
+.image-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+@media (max-width: 768px) {
+  .banner-main { flex-direction: column-reverse; }
+  .text-content, .image-content { width: 100%; }
+}
+
+.btn-primary {
+  margin-top: 1.5rem;
+  display: inline-block;
+  color: var(--primary-700);
+  padding: 0.6rem 2rem;
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+/**** Companies ****/
+.trusted{
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--primary-800);
+  margin-bottom: 1rem;
+}
+.company{
+  width: 90%;
+  margin: 0 auto;
+}
+.companies{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+.companies img{
+  height: 50px;
+}

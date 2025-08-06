@@ -1,0 +1,12 @@
+{
+  "name": "sobrinasia",
+  "version": "0.0.1",
+  "description": "Sobrinasia Web site",
+  "main": "index.html",
+  "repository": "git@github.com:croton/sobrinasia.git",
+  "author": "Cel Pena <celestino.pena@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "nodemailer": "^6.10.0"
+  }
+}

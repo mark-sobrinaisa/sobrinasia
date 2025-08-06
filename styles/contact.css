@@ -1,0 +1,71 @@
+:root {
+  --color-blue: #0F58D0;
+  --color-ltblue: #578ADE;
+  --color-gray: #B2B2B2;
+  --ff-bg: #E8F0FE;
+  --ff-ph-fg: #777777;
+  --ff-focus-color: #777777;
+}
+.flx-v {
+  display: flex;
+  flex-direction: column;
+  /* align-items: stretch; */
+}
+.flx-grid-2 { display: grid; }
+@media (min-width:600px) {
+  .flx-grid-2 {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+}
+.form-group {
+  padding: 0.5rem 0.5rem 0.5rem 0;
+}
+.form-control {
+  background-color: var(--ff-bg);
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--color-gray);
+  padding: .5rem;
+  width: 100%;
+}
+input[type="text"]::placeholder { opacity: 0.5; }
+input { transition: border-color 0.75s ease; }
+input:focus {
+  border: 1px solid darkorange;
+  outline: none;
+}
+.std-btn {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  display: inline-block;
+  border-width: 0;
+  border-radius: 0.625rem;
+  outline-style: none;
+  cursor: pointer;
+  transition: background-color 0.75s ease;
+}
+.flx-theme {
+  color: white;
+  background-color: var(--color-blue);
+}
+.flx-theme:is(:hover, :focus) {
+  background-color: var(--color-ltblue);
+}
+
+.contact-form {
+  position: absolute;
+  width: clamp(300px, 500px, 60vw);
+  height: fit-content;
+  top: 10%;
+  left: 10%;
+  /* right: 0;    bottom: 0; margin: 0; border: 0; padding: 0; */
+}
+@media(min-width:600px) { .contact-form { left: 20%; } }
+
+div.b24-form{ padding-top: 6rem; }

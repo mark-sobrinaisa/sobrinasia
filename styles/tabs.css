@@ -1,0 +1,110 @@
+/**** Tabs with inputs****/
+
+/* Tab container */
+.tabs {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* Style for radios (hidden) */
+  input[type="radio"] {
+    display: none;
+  }
+  
+  /* Tabs titles (labels) */
+  .tab-titles {
+    display: flex;
+    background-color: #f1f1f1;
+  }
+  
+  .tab-title {
+    flex: 1;
+    padding: 14px;
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--neutral-300);
+    color: var(--neutral-50);
+    transition: background-color 0.3s ease;
+    border-top: 2px solid transparent;
+    border-right: 1px solid var(--neutral-500);
+  }
+  .tab-title:last-child{
+    border-right: none;
+  }
+  
+  .tab-title:hover {
+    background-color: var(--primary-300);
+  }
+  
+  /* Active tab style */
+  #tab1:checked ~ .tab-titles label[for="tab1"],
+  #tab2:checked ~ .tab-titles label[for="tab2"],
+  #tab3:checked ~ .tab-titles label[for="tab3"] {
+    background-color: var(--primary-500);
+    border-color: var(--primary-600);
+    border-top: 2px solid var(--primary-800); /* Active tab color */
+    font-weight: bold;
+  }
+/* Tab content style */
+.tab-content {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tab-pane {
+    display: none;
+    padding: 20px;
+    border-top: 1px solid var(--neutral-200);
+    position: relative;
+  }
+  .tab-elem{
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
+    animation: feadIn 0.6s ease-in-out;
+  }
+  .tab-content-left, .tab-content-right{
+    flex: 1;
+  }
+  .tab-img {
+    width: 100%;
+    padding: 1rem;
+  }
+  #tab1:checked ~ .tab-content .tab-pane:nth-child(1),
+  #tab2:checked ~ .tab-content .tab-pane:nth-child(2),
+  #tab3:checked ~ .tab-content .tab-pane:nth-child(3) {
+    display: flex;
+  
+  }
+  @keyframes feadIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .tab-titles {
+      flex-direction: column;
+    }
+    .tab-elem{
+      flex-direction: column;
+    }
+  
+    .tab-title {
+      padding: 12px;
+      border-top: 1px solid var(--neutral-400);
+      text-align: left;
+      padding-left: 2rem;
+    }
+    .tab-title:first-child{
+      border-top: none;
+    }
+  }

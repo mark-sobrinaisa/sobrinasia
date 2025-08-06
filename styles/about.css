@@ -1,0 +1,32 @@
+.image-content{
+    width: 50%;
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.image-content img{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.text-content h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--neutral-900);
+    margin-bottom: 1.5rem;
+}
+.text-content p {
+    font-size: 1rem;
+    color: var(--neutral-950);
+    margin-bottom: 1rem;
+}
+.text-content .btn-contact{
+    margin-top: 2rem; 
+}
+
+@media (max-width: 768px) {
+    .text-content, .image-content {
+        width: 100%;
+    }
+}
