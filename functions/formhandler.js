@@ -1,5 +1,6 @@
 'use strict';
 const nodemailer = require('nodemailer');
+const MESSAGE_TOPIC = 'Contact Added';
 
 exports.handler = async function(event, context) {
   try {
@@ -7,14 +8,17 @@ exports.handler = async function(event, context) {
     const timestamp = new Date().toLocaleString();
     // Expect firstname, lastname, phone, email
     let isOk = (Object.keys(payload).length>=4);
-    const msg = mailer(process.env.MAIL_USER, process.env.MAIL_USER_NAME);
-    if (msg) {
+    console.log('Env:', [process.env.MAIL_USER, process.env.MAIL_USER_NAME, process.env.MAIL_AUTH]);
+    const messager = mailer(process.env.MAIL_USER, process.env.MAIL_USER_NAME);
+    if (messager) {
       payload.submitdate = timestamp;
-      const item = msg(process.env.MAIL_USER, 'Contact Added', JSON.stringify(payload), true);
+      const item = messager(process.env.MAIL_USER, MESSAGE_TOPIC, JSON.stringify(payload), true);
       try {
         const result = await item.send();
-        if (result) console.log('Email sent with success!', result);
-        else isOk = false;
+        if (result) {
+          isOk=true;
+          console.log('Email sent with success!', result);
+        } else isOk = false;
       } catch (err) {
         console.error(err);
         isOk = false;
@@ -35,7 +39,8 @@ exports.handler = async function(event, context) {
       body: JSON.stringify({
         message: err.message,
         code: err.code,
-        status: err.status
+        status: err.status,
+        success: false
       })
     };
   }

@@ -2,7 +2,7 @@
   const formId='sobrinasia-contact';
   const form = document.getElementById(formId);
   if (form) form.addEventListener('submit', logSubmit);
-  else console.log('No form found!');
+  else console.warn('No form found!');
   function logSubmit(event) {
     event.preventDefault();
     const now=new Date();
@@ -26,7 +26,7 @@
           send(payload);
         }
       }
-    } else console.log('No form found!');
+    } else console.warn('No form found!');
   }
   function send(payload) {
     fetch('/.netlify/functions/formhandler', {
