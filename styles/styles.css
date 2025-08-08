@@ -75,7 +75,7 @@ img {
 }
 
 body {
-  font-family: var(--ff-main), sans-serif;
+  font-family: var(--ff-main), serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #f4f4f4;
@@ -90,7 +90,8 @@ ul[class], ol[class] {
 }
 
 .font-headline { font-family: var(--ff-headline), serif; }
-.font-main { font-family: var(--ff-main), sans-serif; }
+.font-main { font-family: var(--ff-main), serif; }
+.font-main-2 { font-family: var(--ff-main-2), serif; }
 
 ion-icon {
   visibility: hidden
@@ -474,9 +475,7 @@ a {
 }
 
 @media (max-width: 768px) {
-  .lists {
-    width: 100%;
-  }
+  .lists { width: 100%; }
 }
 
 /** General**/
@@ -572,15 +571,11 @@ margin-bottom: 5px;
 }
 
 @media (max-width: 768px) {
-  .container-image {
-    width: 50%;
-  }
+  .container-image { width: 50%; }
 }
 
 @media (max-width: 576px) {
-  .container-image {
-    display: none;
-  }
+  .container-image { display: none; }
 }
 
 /************* Tab security ******************/
@@ -631,7 +626,6 @@ margin-bottom: 5px;
 
 /* ---------------- Utilities ----------------- */
 .text-blue { color: var(--primary-600); }
-.font-main-2 { font-family: var(--ff-main-2), sans-serif; }
 .text-bigr { font-size: larger; }
 
 /* Derived from footer */
@@ -645,6 +639,14 @@ margin-bottom: 5px;
   color: var(--neutral-50);
   background-color: var(--primary-950);
 }
+.icon-adj {
+  width: 2rem;
+  padding: 0.5rem 0 0 0;
+}
+@media(min-width:600px) {
+  .icon-adj { padding: 0 0 0 0.5rem; }
+}
+
 .w-3 { width: 3rem; }
 .p-15 { padding: 1.5rem; }
 .flx {
@@ -660,3 +662,11 @@ margin-bottom: 5px;
   .flx-align-top-mobile { align-self: initial; }
 }
 
+.flx-i {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media(min-width:600px) {
+  .flx-i { flex-direction: row; }
+}
