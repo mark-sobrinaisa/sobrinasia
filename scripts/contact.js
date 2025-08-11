@@ -29,10 +29,11 @@
     } else console.warn('No form found!');
   }
   function send(payload) {
+    payload.submitdate = new Date().toLocaleString();
     fetch('/.netlify/functions/formhandler', {
       method: 'POST',
-      'Content-Type': 'application/json',
-      body: JSON.stringify(payload)
+      'Content-Type': 'text/plain',
+      body: formatMessage(payload)
     }).then(resp => {
       return resp.json();
     }).then(data => {
@@ -47,5 +48,9 @@
     const filenameStart=window.location.href.lastIndexOf('/')+1;
     const pathStart=window.location.href.substring(0,filenameStart);
     window.location.href=`${pathStart}${newpage}.html`;
+  }
+  // Format a JSON object into a message
+  function formatMessage(data) {
+    return `${data.firstname}\n${data.lastname}\n${data.phone}\n${data.email}\n${data.submitdate}`;
   }
 })();

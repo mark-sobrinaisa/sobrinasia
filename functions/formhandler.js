@@ -4,15 +4,10 @@ const MESSAGE_TOPIC = 'Contact Added';
 
 exports.handler = async function(event, context) {
   try {
-    const payload = JSON.parse(event.body);
-    const timestamp = new Date().toLocaleString();
-    // Expect firstname, lastname, phone, email
-    let isOk = (Object.keys(payload).length>=4);
-    console.log('Env:', [process.env.MAIL_USER, process.env.MAIL_USER_NAME, process.env.MAIL_AUTH]);
+    let isOk = true;
     const messager = mailer(process.env.MAIL_USER, process.env.MAIL_USER_NAME);
     if (messager) {
-      payload.submitdate = timestamp;
-      const item = messager(process.env.MAIL_USER, MESSAGE_TOPIC, JSON.stringify(payload), true);
+      const item = messager(process.env.MAIL_USER, MESSAGE_TOPIC, event.body, true);
       try {
         const result = await item.send();
         if (result) {
@@ -28,7 +23,7 @@ exports.handler = async function(event, context) {
     return {
       statusCode: (isOk ? 200 : 400),
       body: JSON.stringify({
-        message: `Submit info (${isOk?'Pass':'Fail'}) at ${timestamp}`,
+        message: `Submit info (${isOk?'Pass':'Fail'}) at ${new Date().toLocaleString()}`,
         success: isOk
       })
     };
